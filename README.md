@@ -1,1 +1,1 @@
-# 1ra-Interfaz-Gr-fica-con-Tkinter
+# 1ra-Interfaz-Grafica-con-Tkinter
