@@ -1,8 +1,9 @@
 import csv
-
 class placaclave:
-    def __init__(self):
-        self.login()
+    def __init__(self):      
+        while True:
+          if self.login():
+            break
 
     def login(self):
         self.placa = input("Ingrese la placa: ")
@@ -15,10 +16,8 @@ class placaclave:
                     return True
         print("Intentelo de nuevo")
         return False
-    
-
+           
 siu = placaclave()
-
 
 
 
