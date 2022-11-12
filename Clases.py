@@ -1,9 +1,12 @@
+import requests
+import json
 class Estacion:
-    def __init__(self, nombre) -> None:
+    def __init__(self, nombre, ubicacion: str) -> None:
         self.nombre = nombre
         self.tiempo_ideal = 0
         self.next = None
         self.previous = None
+        self.ubicacion= ubicacion
     def __repr__(self) -> str:
         return str((self.tiempo_ideal))
 
@@ -12,13 +15,8 @@ class Ruta:
         self.PTR = None
         self.last = None
         self.size = 0
-    
-    def agregar_estaciones (self, N_estaciones : int):
-        iterador = 0
-        while(iterador < N_estaciones):
-            Nombre = str(input("Por favor digite el nombre de la estación: "))
-            self.agregar(nombre= Nombre)
-            iterador += 1
+        self.distancias = []
+        self.tiempos = []
     
     def correr(self):
         actual = self.PTR
@@ -26,8 +24,8 @@ class Ruta:
             print(f" {actual} ->")
             actual = actual.next
             
-    def agregar (self, nombre)-> None:
-        temp = Estacion(nombre)
+    def agregar (self, nombre, ubicacion: str)-> None:
+        temp = Estacion(nombre, ubicacion)
         if(self.PTR == None):
             self.PTR = temp
             self.last = temp
@@ -38,10 +36,30 @@ class Ruta:
             self.last = temp
             self.last.previous = aux
 
-            self.last.tiempo_ideal = 20 + self.last.previous.tiempo_ideal 
-
         self.size += 1
-
+    
+    def tiempos_ideales(self)->None:
+        
+        origen = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
+        destino = "&destinations="
+        nueva_direcion = "%7C"
+        API_KEY = "&key=AIzaSyC11D7S2Tiv8IZb-kOpz06-PEEi1-zeYXE"
+        modo = "&transit_mode=bus"
+       
+        url = origen+self.PTR.ubicacion+destino+self.PTR.next.ubicacion+nueva_direcion+self.PTR.next.next.ubicacion+nueva_direcion+nueva_direcion+self.PTR.next.next.next.ubicacion+modo+API_KEY
+        respuesta = requests.get(url=url).json()
+        self.save_data(self.distancias,self.tiempos,respuesta)
+        
+        url = origen+self.last.ubicacion+destino+self.last.previous.ubicacion+nueva_direcion+self.last.previous.previous.ubicacion+nueva_direcion+nueva_direcion+self.last.previous.previous.previous.ubicacion+modo+API_KEY
+        respuesta = requests.get(url=url).json()
+        self.save_data(self.distancias,self.tiempos,respuesta)
+        
+    def save_data (self,distancias, tiempos, respuesta)-> None:
+        for obj in respuesta['rows']:
+            for data in obj ['elements']:
+                distancias.append((data['distance']['text']))
+                tiempos.append((data['duration']['text']))
+    
     def __repr__(self) -> str:
         cadena = ""
         actual = self.PTR
@@ -51,31 +69,25 @@ class Ruta:
         cadena += "[" + str(actual.nombre) + "]"  
       
         return(cadena)
-    
+
+        
 
 
 class bus:
-    def __init__(self, ruta, codigo) -> None:
+    def _init_(self, codigo) -> None:
         self.codigo = codigo
-        self.ruta = ruta
-        self.horas_ideales = []
-    
-    def calcular_horas (self, hora_de_salida):
-        actual = self.ruta.PTR
-        iterador = 0
-        while(actual != None):
-            self.horas_ideales [iterador] = self.sumar_horas(hora_de_salida, actual.tiempo_ideal)
-            iterador += 1
-            actual = actual.next
-        iterador = 0
-
-        while(actual != None):
-            print(self.horas_ideales [iterador])
-            iterador += 1
-            actual = actual.next
         
-            
-
+    
+    def calcular_horas (self, hora_de_salida, ruta : Ruta):
+        actual = ruta.PTR
+        horas_ideales = []
+         
+        while(actual != None):
+            horas_ideales.append(self.sumar_horas(int(hora_de_salida), int(actual.tiempo_ideal)))
+            actual = actual.next
+        for i in horas_ideales:
+            print(i)
+        
     def sumar_horas(self, hora_de_salida: int, tiempo_sumar : int) -> int:
         if(tiempo_sumar < 60):
             return (hora_de_salida + tiempo_sumar)
