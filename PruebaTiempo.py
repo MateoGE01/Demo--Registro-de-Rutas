@@ -1,6 +1,8 @@
+import time
 import requests
 import json
 import time
+
 class Estacion:
     def __init__(self, nombre, ubicacion: str) -> None:
         self.nombre = nombre
@@ -8,17 +10,19 @@ class Estacion:
         self.next = None
         self.previous = None
         self.ubicacion= ubicacion
-    def __repr__(self) -> str:
-        return str((self.tiempo_ideal))
+    
 
 class Ruta:
     def __init__(self):
+        self.hora_partida = None
         self.PTR = None
         self.last = None
         self.size = 0
         self.distancias = []
         self.tiempos = []
-    
+        self.horas = []
+        
+        
     def correr(self):
         actual = self.PTR
         while(actual != None):
@@ -41,6 +45,10 @@ class Ruta:
     
     def tiempos_ideales(self)->None:
         
+        hora_partida = time.strftime("%H:%M")
+        self.hora_partida = float(hora_partida[0]+hora_partida[1]+hora_partida[3]+hora_partida[4])
+
+
         origen = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
         destino = "&destinations="
         nueva_direcion = "%7C"
@@ -59,16 +67,7 @@ class Ruta:
                 distancias.append((data['distance']['text']))
                 tiempos.append((data['duration']['text']))
     
-    def __repr__(self) -> str:
-        cadena = ""
-        actual = self.PTR
-        while(actual.next != None):
-            cadena += "[" + str(actual.nombre) + "]" + "->"  
-            actual = actual.next
-        cadena += "[" + str(actual.nombre) + "]"  
-      
-        return(cadena)
-
+    
         
 
 
@@ -96,3 +95,4 @@ class bus:
             horas = num_horas * 100
 
             return (hora_de_salida + horas + min)
+

@@ -1,2 +1,2 @@
-from InicioSesionVentana import login
+from InicioSesionVentana import *
 login()
