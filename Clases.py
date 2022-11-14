@@ -89,7 +89,12 @@ class Ruta:
                     hora_salida =  str(nueva_hora // 10) + str(nueva_hora % 10)+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
                 else:
                     hora_salida =  "0" + str(nueva_hora % 24)+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
-                
+            
+            hora_salida_horas = int(hora_salida[0]+hora_salida[1])
+            if(hora_salida_horas > 12):
+                hora_salida = hora_salida + " pm"
+            else:
+                hora_salida = hora_salida + " am"
             self.horas_llegada.append(hora_salida)
     
     def __repr__(self) -> str:
