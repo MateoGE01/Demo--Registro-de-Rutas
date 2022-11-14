@@ -24,10 +24,10 @@ class login:
     def __init__(self) -> None:
         self.ventana = tk.Tk()    #creacion de ventana                         
         self.ventana.title('Registro de Viaje')
-        self.ventana.geometry('1200x700')
+        self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
         self.ventana.resizable(width=0, height=0)    
-        centrar_ventana(self.ventana,800,500)
+        centrar_ventana(self.ventana,800,600)
 
         logo =leer_imagen("./imagenes/DonQueso.png", (350, 350))
 
@@ -83,10 +83,10 @@ class mapita:
     def __init__(self) -> None:
         self.ventana = tk.Tk()    #creacion de ventana                         
         self.ventana.title('Registro de Viaje')
-        self.ventana.geometry('1200x700')
+        self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
         self.ventana.resizable(width=0, height=0)    
-        centrar_ventana(self.ventana,800,500)
+        centrar_ventana(self.ventana,800,600)
 
         logo =leer_imagen("./imagenes/DonQueso.png", (350, 350))
 
