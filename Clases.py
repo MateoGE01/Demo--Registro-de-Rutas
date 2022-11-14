@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import time
 class Estacion:
     def __init__(self, nombre, ubicacion: str) -> None:
         self.nombre = nombre
@@ -18,6 +19,7 @@ class Ruta:
         self.size = 0
         self.distancias = []
         self.tiempos = []
+        self.horas_llegada = []
     
     def correr(self):
         actual = self.PTR
@@ -58,6 +60,37 @@ class Ruta:
             for data in obj ['elements']:
                 distancias.append((data['distance']['text']))
                 tiempos.append((data['duration']['text']))
+    
+    def save_data (self,distancias, tiempos, respuesta)-> None:
+        for obj in respuesta['rows']:
+            for data in obj ['elements']:
+                distancias.append((data['distance']['text']))
+                tiempos.append((data['duration']['text']))
+    
+    def sumar_horas(self)->None:
+        for times in self.tiempos:    
+            hora_salida1 = time.strftime("%H:%M")
+            hora_adicional = int(times[0] + times[1])
+            hora_salida_min = int(hora_salida1[3]+hora_salida1[4])
+            hora_salida_horas = int(hora_salida1[0]+hora_salida1[1])
+
+            if(hora_adicional + hora_salida_min < 60):
+                nuevos_min = hora_adicional + hora_salida_min
+                hora_salida =  hora_salida1[0]+hora_salida1[1]+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
+            else:
+                nuevos_min = (hora_adicional + hora_salida_min) % 60
+                horas_sumar = (hora_adicional + hora_salida_min) // 60
+
+                nueva_hora = hora_salida_horas + horas_sumar
+
+                if(nueva_hora < 10):
+                    hora_salida =  "0"+str(nueva_hora)+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
+                elif(nueva_hora < 24):
+                    hora_salida =  str(nueva_hora // 10) + str(nueva_hora % 10)+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
+                else:
+                    hora_salida =  "0" + str(nueva_hora % 24)+":"+ str(nuevos_min // 10) + str(nuevos_min % 10)
+                
+            self.horas_llegada.append(hora_salida)
     
     def __repr__(self) -> str:
         cadena = ""
