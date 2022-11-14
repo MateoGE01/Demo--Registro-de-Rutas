@@ -112,8 +112,8 @@ class mapita:
         frame_form_fill = tk.Frame(frame_form,height = 50,  bd=0, relief=tk.SOLID,bg='#fcfcfc')
         frame_form_fill.pack(side="bottom",expand=tk.YES,fill=tk.BOTH)
 
-        
-        inforuta1 = tk.Label(frame_form_fill, text="1: Terminal➜Estadio ➜ Caribe verde ➜ Uni Atlantico", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+
+        inforuta1 = tk.Label(frame_form_fill, text="1: Terminal➜Estadio➜Caribe verde➜Uni Atlantico", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=tk.X, padx=20,pady=5)
         inforuta2 = tk.Label(frame_form_fill, text="2: Terminal➜Camino murillo➜Puente murillo➜Malecon", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=tk.X, padx=20,pady=5)
