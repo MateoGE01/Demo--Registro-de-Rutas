@@ -33,7 +33,8 @@ class mapa:
         ruta.agregar(self.estacion2, self.estacion2_latitud+"%2C"+self.estacion2_longitud) 
         ruta.agregar(self.final, self.final_latitud+"%2C"+self.final_longitud)
         ruta.tiempos_ideales()
-
+        ruta.sumar_horas()
+        
         #Creación de la ventana
         self.VentanaPrin = Tk()
         self.VentanaPrin.geometry("1200x700")
@@ -47,9 +48,9 @@ class mapa:
 
         #Creación de marcadores en el mapa
         self.EstacionPrincipal = self.ventana_mapa.set_marker(float(self.origen_latitud), float(self.origen_longitud), text=self.origen)
-        self.Parada1 = self.ventana_mapa.set_marker(float(self.estacion1_latitud), float(self.estacion1_longitud), text=f"{self.estacion1} \n{ruta.distancias[0]} \n{ruta.tiempos[0]}")
-        self.Parada2 = self.ventana_mapa.set_marker(float(self.estacion2_latitud), float(self.estacion2_longitud), text=f"{self.estacion2} \n{ruta.distancias[1]} \n{ruta.tiempos[1]}")
-        self.Parada3 = self.ventana_mapa.set_marker(float(self.final_latitud), float(self.final_longitud), text=f"{self.final} \n{ruta.distancias[2]} \n{ruta.tiempos[2]}")
+        self.Parada1 = self.ventana_mapa.set_marker(float(self.estacion1_latitud), float(self.estacion1_longitud), text=f"{self.estacion1} \n{ruta.distancias[0]} \n{ruta.tiempos[0]}\n{ruta.horas_llegada[0]}")
+        self.Parada2 = self.ventana_mapa.set_marker(float(self.estacion2_latitud), float(self.estacion2_longitud), text=f"{self.estacion2} \n{ruta.distancias[1]} \n{ruta.tiempos[1]}\n{ruta.horas_llegada[1]}")
+        self.Parada3 = self.ventana_mapa.set_marker(float(self.final_latitud), float(self.final_longitud), text=f"{self.final} \n{ruta.distancias[2]} \n{ruta.tiempos[2]}\n{ruta.horas_llegada[2]}")
         self.path()
         
 
