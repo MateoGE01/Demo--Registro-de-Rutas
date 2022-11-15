@@ -22,7 +22,7 @@ class login:
                 if row == [placa, clave]:
                     self.ventana.destroy()
                     if(self.iteracion == True):
-                        rutitas()   
+                        rutitas()  
                     i = True
             if (i == False):
                 messagebox.showerror(message="Parece que un dato no cuadra🤔",title="Datos no concuerdan")
@@ -154,8 +154,10 @@ class rutitas:
 
 class estadisticas:
                                       
-    def __init__(self, tiempo, distancias, hora_ideal) -> None:
-        self.tiempo = tiempo
+    def __init__(self, horas_llegada, distancias, hora_ideal, hora_salida, estaciones, i) -> None:
+        self.estaciones = estaciones
+        self.hora_salida = hora_salida
+        self.horas_llegada = horas_llegada
         self.distancia = distancias
         self.hora_ideal = hora_ideal
         self.ventana = Tk()    #creacion de ventana                         
@@ -181,7 +183,7 @@ class estadisticas:
         #frame_form_top será el título
         self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         self.frame_form_top.pack(side="top",fill=X)
-        self.title = Label(self.frame_form_top, text="WAZAAAAAAAAAAAAAAA🐁🐁🐁🐁🐁",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        self.title = Label(self.frame_form_top, text="Estadisticas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         self.title.pack(expand=YES,fill=BOTH)
         #end frame_form_top
 
@@ -190,31 +192,63 @@ class estadisticas:
         self.frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
 
 
-        self.texto()
-
-        #Botón para ver la ruta
         
-
-        #Pedir al usuario cual ruta desea ver       
-
-       
-    def texto(self):
-        i = True
-        hora_real = time.strftime("%H:%M") 
+        
+        hora_real = time.strftime("%H:%M:%p") 
         horas_reales = int(hora_real[0]+hora_real[1])
         horas_ideales = int(self.hora_ideal[0]+self.hora_ideal[1])
         hora_real_min = int(hora_real[3]+hora_real[4])
         horas_ideales_min = int(self.hora_ideal[3]+self.hora_ideal[4])
+        velocidad_prom =  self.velocidad(horas_reales, hora_real_min)
 
-        #if(horas_reales == horas_ideales):
-            #if(hora_real_min == horas_ideales_min):
-        inforuta1 = Label(self.frame_form_fill, text="Un trabajo verdaremente PERFECTO", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        if(horas_reales == horas_ideales):
+            if(hora_real_min == horas_ideales_min):
+                texto = "Un trabajo verdaremente PERFECTO"
+            elif(hora_real_min > horas_ideales_min):
+                texto = "No te preocupes un retraso nos pasa a todos 😉"
+            else:
+                texto = "Mas despacio rayo ⚡"
+        elif(horas_reales > horas_ideales):
+            texto = "No te preocupes un retraso nos pasa a todos 😉" 
+        else:
+                texto = "Mas despacio rayo ⚡"
+
+    
+
+        recordatorio = ""
+        inforuta1 = Label(self.frame_form_fill, text=texto, font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=X, padx=20,pady=5)
-        inforuta2 = Label(self.frame_form_fill, text=f"Hora de llegada:  ideal: {self.hora_ideal}, ideal: {hora_real}", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        if(i == 0):
+            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+        elif(i == 1):
+            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+        inforuta2 = Label(self.frame_form_fill,
+        text=f"Hora de llegada: \n  Ideal: {self.hora_ideal} \n Real: {hora_real} \n Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
+        font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
+        
         self.inicio = Button(self.frame_form_fill,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.ventana.destroy)
         self.inicio.pack(side="bottom",fill=X, padx=20,pady=20)
         self.ventana.mainloop()
+
+    def velocidad(self,hora_llegada, min_llegada):
+        try:    
+            distancia = float(self.distancia[0]+self.distancia[1])
+            horas_salida = float(self.hora_salida[0]+self.hora_salida[1])
+            min_salida = float(self.hora_salida[3]+self.hora_salida[4])
+            if(hora_llegada == horas_salida):
+                tiempo = min_llegada - min_salida
+            else:
+                diferencia_horas = hora_llegada - horas_salida
+                if(diferencia_horas == 1):
+                    tiempo = (min_llegada - min_salida) + 60
+                else:
+                    tiempo = (diferencia_horas-1)*60 + (min_llegada - min_salida) + 60
+            
+            return (distancia/(tiempo/60))
+        except:
+            return "∞"
+
 
 #Ventana del mapa
 class mapa:  
@@ -252,7 +286,7 @@ class mapa:
             self.tiempos.append(ruta.tiempos[i])
             self.distancias.append(ruta.distancias[i])
             self.horas_llegada.append(ruta.horas_llegada[i])
-
+        self.horas_llegada.append(ruta.horas_llegada[i+1])
         
         
         #Creación de la ventana
@@ -289,9 +323,8 @@ class mapa:
         self.VentanaPrin.destroy()
         for i in range(len(self.estaciones)):
             login(f"Iniciar Sesión \n{self.estaciones[i]}","#699e30", False)
-            print(i)
-            estadisticas(self.tiempos[i],self.distancias[i],self.horas_llegada[i])    
-            print(i)
+            estadisticas(self.horas_llegada,self.distancias[i],self.horas_llegada[i],self.horas_llegada[3], self.estaciones, i)    
+            
 
     #Función que contiene como opciones los datos de latitud y longitud de las paradas
     def opciones(self):
