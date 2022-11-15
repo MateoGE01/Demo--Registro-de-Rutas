@@ -1,2 +1,2 @@
-from InicioSesionVentana import *
-login()
+from InterfazGrafica import *
+login("Iniciar Sesión🔑", "#666a88", True)
