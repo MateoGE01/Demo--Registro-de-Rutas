@@ -9,7 +9,7 @@ import time
 
 
 #Ventana de inicio de sesión principal
-class login:
+class Login:
 
     def InicioSesion(self):
 
@@ -22,10 +22,10 @@ class login:
                 if row == [placa, clave]:
                     self.ventana.destroy()
                     if(self.iteracion == True):
-                        rutitas()  
+                        Rutitas()  
                     i = True
             if (i == False):
-                messagebox.showerror(message="Parece que un dato no cuadra🤔",title="Datos no concuerdan")
+                messagebox.showerror(message="Parece que un dato no concuerdan🤔",title="Datos no concuerdan")
         
          
        
@@ -87,14 +87,14 @@ class login:
         self.ventana.mainloop()
                        
 #Ventana con las rutas posibles
-class rutitas:
+class Rutitas:
 
     def EleccionRutas(self):
         try:
             Eleccion = int(self.usuario.get())     
             if Eleccion  >=1 and Eleccion <=2:
                 self.ventana.destroy()
-                mapa(Eleccion)
+                Mapa(Eleccion)
             else:
                 messagebox.showerror(message="Parece que un dato no concuerda🤔",title="Datos no concuerdan")  
         except:
@@ -154,7 +154,7 @@ class rutitas:
 
         self.ventana.mainloop()
 
-class estadisticas:
+class Estadisticas:
                                       
     def __init__(self, horas_llegada, distancias, hora_ideal, hora_salida, estaciones, i) -> None:
         self.estaciones = estaciones
@@ -254,7 +254,7 @@ class estadisticas:
 
 
 #Ventana del mapa
-class mapa:  
+class Mapa:  
 
     def __init__(self, opcion): 
         #Creación de variables
@@ -321,13 +321,13 @@ class mapa:
     #Destruye todas las páginas y reinicia de nuevo
     def regresa(self)->None:
         self.VentanaPrin.destroy()
-        rutitas()
+        Rutitas()
     
     def comienzoV(self)->None:
         self.VentanaPrin.destroy()
         for i in range(len(self.estaciones)):
-            login(f"Iniciar Sesión \n{self.estaciones[i]}","#699e30", False)
-            estadisticas(self.horas_llegada,self.distancias[i],self.horas_llegada[i],self.horas_llegada[3], self.estaciones, i)    
+            Login(f"Iniciar Sesión \n{self.estaciones[i]}","#699e30", False)
+            Estadisticas(self.horas_llegada,self.distancias[i],self.horas_llegada[i],self.horas_llegada[3], self.estaciones, i)    
             
 
     #Función que contiene como opciones los datos de latitud y longitud de las paradas
