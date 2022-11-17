@@ -43,25 +43,25 @@ class Login:
 
         self.logo =leer_imagen("./imagenes/LogoOOP.png", (400, 130))
 
-        # frame_logo panel de la izquierda
+        #Panel de la izquierda
         self.frame_logo = Frame(self.ventana, bd=0, width=400, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
         self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
-        #frame_form panel de la derecha
+        #Panel de la derecha
         self.frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
         self.frame_form.pack(side="right",expand=YES,fill=BOTH)
         #frame_form
         
-        #frame_form_top será el título
+        #Será el título
         self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         self.frame_form_top.pack(side="top",fill=X)
         self.title = Label(self.frame_form_top, text=self.titulo, font=('Times', 30), fg=self.colorletra,bg='#fcfcfc',pady=50)
         self.title.pack(expand=YES,fill=BOTH)
         #end frame_form_top
 
-        #frame_form_fill a la derecha del logo y debajo del título "Inicio de Sesion"
+        #A la derecha del logo y debajo del título "Inicio de Sesion"
         self.frame_form_fill = Frame(self.frame_form,height = 2,  bd=0, relief=SOLID,bg='#fcfcfc')
         self.frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
 
@@ -111,27 +111,27 @@ class Rutitas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 140))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 120))
 
-        # frame_logo panel de la izquierda
+        #Panel de la izquierda
         frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         frame_logo.pack(side="left",expand=NO,fill=BOTH)
         label = Label( frame_logo, image=self.logo,bg='#b9ea83' )
         label.place(x=0,y=0,relwidth=1, relheight=1)
 
-        #frame_form panel de la derecha
+        #Panel de la derecha
         frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
         frame_form.pack(side="right",expand=YES,fill=BOTH)
-        #frame_form
         
-        #frame_form_top será el título
+        
+        #Será el título
         frame_form_top = Frame(frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         frame_form_top.pack(side="top",fill=X)
         title = Label(frame_form_top, text="Rutas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         title.pack(expand=YES,fill=BOTH)
-        #end frame_form_top
+        
 
-        #frame_form_fill a la derecha del logo y debajo del título "Inicio de Sesion"
+        #A la derecha del logo y debajo del título "Inicio de Sesion"
         frame_form_fill = Frame(frame_form,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
         frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
 
@@ -172,25 +172,25 @@ class Estadisticas:
 
         self.logo =leer_imagen("./imagenes/LogoOOP.png", (280, 130))
 
-        # frame_logo panel de la izquierda
+        #Panel de la izquierda
         self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
         self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
-        #frame_form panel de la derecha
+        #Panel de la derecha
         self.frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
         self.frame_form.pack(side="right",expand=YES,fill=BOTH)
         #frame_form
         
-        #frame_form_top será el título
+        #Será el título
         self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         self.frame_form_top.pack(side="top",fill=X)
         self.title = Label(self.frame_form_top, text="Estadisticas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         self.title.pack(expand=YES,fill=BOTH)
-        #end frame_form_top
+        
 
-        #frame_form_fill a la derecha del logo y debajo del título "Inicio de Sesion"
+        #A la derecha del logo y debajo del título "Inicio de Sesion"
         self.frame_form_fill = Frame(self.frame_form,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
         self.frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
 
