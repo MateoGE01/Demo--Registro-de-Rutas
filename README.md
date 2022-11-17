@@ -17,7 +17,7 @@ Para usar el proyecto se deben realizar los siguientes pasos:
     3. Escribir el siguiente comando para instalar el módulo tkintermapview
       ![image](https://user-images.githubusercontent.com/109986042/202379240-47134b71-e523-46f3-98ba-db844762a6f3.png)
     4. Escribir el siguiente comando para instalar el módulo requests
-      ![image](https://user-images.githubusercontent.com/109986042/202379421-ebf03e34-2110-43f5-aa04-520ae55e1624.png)
+      ![image](https://user-images.githubusercontent.com/109986042/202381606-2d4c4e49-122e-4084-b97c-40e5d91bbe7a.png)
 4) Correr main.py
 
 
