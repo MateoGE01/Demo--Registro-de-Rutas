@@ -111,7 +111,7 @@ class rutitas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 120))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
         frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -127,7 +127,7 @@ class rutitas:
         #Será el título
         frame_form_top = Frame(frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         frame_form_top.pack(side="top",fill=X)
-        title = Label(frame_form_top, text="Rutas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        title = Label(frame_form_top, text="Rutas🛣",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         title.pack(expand=YES,fill=BOTH)
         
 
@@ -163,14 +163,14 @@ class estadisticas:
         self.distancia = distancias
         self.hora_ideal = hora_ideal
         self.ventana = Tk()    #creacion de ventana                         
-        self.ventana.title('Registro de Viaje')
+        self.ventana.title(f'Estadísticas {self.estaciones[i]}')
         self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
         self.ventana.iconbitmap("./imagenes/LogoGuide.ico")
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (280, 130))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
         self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -186,7 +186,7 @@ class estadisticas:
         #Será el título
         self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         self.frame_form_top.pack(side="top",fill=X)
-        self.title = Label(self.frame_form_top, text="Estadisticas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        self.title = Label(self.frame_form_top, text="Estadísticas📄",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         self.title.pack(expand=YES,fill=BOTH)
         
 
