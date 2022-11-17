@@ -111,7 +111,7 @@ class rutitas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (290, 130))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 140))
 
         # frame_logo panel de la izquierda
         frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
