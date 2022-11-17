@@ -21,6 +21,6 @@ Para usar el proyecto se deben realizar los siguientes pasos:
 4) Correr main.py
 
 # Diagrama UML
-![image](https://user-images.githubusercontent.com/109986042/202382066-2b05feb5-b71a-4e26-9c1c-4a61bd76bc01.png)
+![WhatsApp Image 2022-11-16 at 11 05 28 PM](https://user-images.githubusercontent.com/109986042/202382130-938dd0b0-0597-4848-bb7e-0c93ea896681.jpeg)
 
 
