@@ -85,6 +85,8 @@ class Ruta:
             else:
                 hora_salida = hora_salida + " am"
             self.horas_llegada.append(hora_salida)
+        self.horas_llegada.append(time.strftime("%H:%M"))
+        
     
   
 
