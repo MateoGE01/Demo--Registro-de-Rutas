@@ -206,15 +206,15 @@ class Estadisticas:
 
         if(horas_reales == horas_ideales):
             if(hora_real_min == horas_ideales_min):
-                texto = "         Un trabajo verdaremente PERFECTO"
+                texto = "                   Un trabajo verdaremente PERFECTO"
             elif(hora_real_min > horas_ideales_min):
-                texto = "        No te preocupes un retraso nos pasa a todos 😉"
+                texto = "                 No te preocupes un retraso nos pasa a todos 😉"
             else:
-                texto = "      Mas despacio rayo ⚡"
+                texto = "                    Mas despacio rayo ⚡"
         elif(horas_reales > horas_ideales):
-            texto = "       No te preocupes un retraso nos pasa a todos 😉" 
+            texto = "                    No te preocupes un retraso nos pasa a todos 😉" 
         else:
-                texto = "       Mas despacio rayo ⚡"
+                texto = "                      Mas despacio rayo ⚡"
 
     
 
@@ -222,11 +222,11 @@ class Estadisticas:
         inforuta1 = Label(self.frame_form_fill, text=texto, font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=X, padx=20,pady=5)
         if(i == 0):
-            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+            recordatorio = f"          Recuerde que debe estar en: \n       {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
         elif(i == 1):
-            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+            recordatorio = f"          Recuerde que debe estar en: \n        {self.estaciones[2]} a las: {self.horas_llegada[2]}"
         inforuta2 = Label(self.frame_form_fill,
-        text=f"Hora de llegada: \n  Ideal: {self.hora_ideal} \n Real: {hora_real} \n Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
+        text=f"             Hora de llegada: \n           Ideal: {self.hora_ideal} \n               Real: {hora_real} \n            Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
         font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
         
