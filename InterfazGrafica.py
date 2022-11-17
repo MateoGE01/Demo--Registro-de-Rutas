@@ -25,7 +25,7 @@ class Login:
                         Rutitas()  
                     i = True
             if (i == False):
-                messagebox.showerror(message="Parece que un dato no concuerdan🤔",title="Datos no concuerdan")
+                messagebox.showerror(message="Parece que un dato no concuerda🤔",title="Datos no concuerdan")
         
          
        
@@ -230,7 +230,7 @@ class Estadisticas:
         font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
         
-        self.inicio = Button(self.frame_form_fill,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.ventana.destroy)
+        self.inicio = Button(self.frame_form_fill,text="Siguiente estación",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.ventana.destroy)
         self.inicio.pack(side="bottom",fill=X, padx=20,pady=20)
         self.ventana.mainloop()
 

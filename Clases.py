@@ -3,7 +3,7 @@ import json
 import time
 import time
 class Estacion:
-    def __init__(self, nombre, ubicacion: str) -> None:
+    def __init__(self, nombre: str, ubicacion: str) -> None:
         self.nombre = nombre
         self.tiempo_ideal = 0
         self.next = None
@@ -15,13 +15,12 @@ class Ruta:
     def __init__(self):
         self.PTR = None
         self.last = None
-        self.size = 0
         self.distancias = []
         self.tiempos = []
         self.horas_llegada = []
     
             
-    def agregar (self, nombre, ubicacion: str)-> None:
+    def agregar (self, nombre :str, ubicacion: str)-> None:
         temp = Estacion(nombre, ubicacion)
         if(self.PTR == None):
             self.PTR = temp
@@ -32,8 +31,6 @@ class Ruta:
             aux = self.last
             self.last = temp
             self.last.previous = aux
-
-        self.size += 1
     
     def tiempos_ideales(self)->None:
         
@@ -45,15 +42,15 @@ class Ruta:
        
         url = origen+self.PTR.ubicacion+destino+self.PTR.next.ubicacion+nueva_direcion+self.PTR.next.next.ubicacion+nueva_direcion+nueva_direcion+self.PTR.next.next.next.ubicacion+modo+API_KEY
         respuesta = requests.get(url=url).json()
-        self.save_data(self.distancias,self.tiempos,respuesta)
+        self.save_data(respuesta=respuesta)
         
         
         
-    def save_data (self,distancias, tiempos, respuesta)-> None:
+    def save_data (self, respuesta)-> None:
         for obj in respuesta['rows']:
             for data in obj ['elements']:
-                distancias.append((data['distance']['text']))
-                tiempos.append((data['duration']['text']))
+                self.distancias.append((data['distance']['text']))
+                self.tiempos.append((data['duration']['text']))
     
     
     def sumar_horas(self)->None:
