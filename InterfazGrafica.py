@@ -32,20 +32,21 @@ class login:
     def __init__(self, titulo, colorletra, iteracion: bool) -> None:
         self.iteracion = iteracion
         self.ventana = Tk()    #creacion de ventana                         
-        self.ventana.title('Registro de Viaje')
+        self.ventana.title('Inicio de Sesión')
         self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
+        self.ventana.iconbitmap("./imagenes/LogoGuide.ico")
         self.ventana.resizable(width=0, height=0) 
         self.titulo = titulo
         self.colorletra = colorletra       
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/DonQueso.png", (350, 350))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (400, 130))
 
         # frame_logo panel de la izquierda
-        self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#3a7ff6')
+        self.frame_logo = Frame(self.ventana, bd=0, width=400, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        self.label = Label( self.frame_logo, image=self.logo,bg='#3a7ff6' )
+        self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #frame_form panel de la derecha
@@ -106,15 +107,16 @@ class rutitas:
         self.ventana.title('Registro de Viaje')
         self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
+        self.ventana.iconbitmap("./imagenes/LogoGuide.ico")
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        logo =leer_imagen("./imagenes/DonQueso.png", (350, 350))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 130))
 
         # frame_logo panel de la izquierda
-        frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#3a7ff6')
+        frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        label = Label( frame_logo, image=logo,bg='#3a7ff6' )
+        label = Label( frame_logo, image=self.logo,bg='#b9ea83' )
         label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #frame_form panel de la derecha
@@ -162,15 +164,16 @@ class estadisticas:
         self.ventana.title('Registro de Viaje')
         self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
+        self.ventana.iconbitmap("./imagenes/LogoGuide.ico")
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/DonQueso.png", (350, 350))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (400, 130))
 
         # frame_logo panel de la izquierda
-        self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#3a7ff6')
+        self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
         self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        self.label = Label( self.frame_logo, image=self.logo,bg='#3a7ff6' )
+        self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #frame_form panel de la derecha
@@ -259,6 +262,7 @@ class mapa:
         self.VentanaPrin = Tk()
         self.VentanaPrin.geometry("1200x700")
         self.VentanaPrin.title("Mapita")
+        self.VentanaPrin.iconbitmap("./imagenes/LogoGuide.ico")
         
         #Creación del frame y el mapa contenido en la misma
         self.ventana_mapa = TkinterMapView(self.VentanaPrin, width=600, height=400, corner_radius=0)        
