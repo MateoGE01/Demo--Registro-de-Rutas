@@ -111,7 +111,7 @@ class Rutitas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 120))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
         frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -127,7 +127,7 @@ class Rutitas:
         #Será el título
         frame_form_top = Frame(frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         frame_form_top.pack(side="top",fill=X)
-        title = Label(frame_form_top, text="Rutas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        title = Label(frame_form_top, text="Rutas🛣",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         title.pack(expand=YES,fill=BOTH)
         
 
@@ -163,14 +163,14 @@ class Estadisticas:
         self.distancia = distancias
         self.hora_ideal = hora_ideal
         self.ventana = Tk()    #creacion de ventana                         
-        self.ventana.title('Registro de Viaje')
+        self.ventana.title(f'Estadísticas {self.estaciones[i]}')
         self.ventana.geometry('800x600')
         self.ventana.config(bg='#fcfcfc')
         self.ventana.iconbitmap("./imagenes/LogoGuide.ico")
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (280, 130))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
         self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -186,7 +186,7 @@ class Estadisticas:
         #Será el título
         self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
         self.frame_form_top.pack(side="top",fill=X)
-        self.title = Label(self.frame_form_top, text="Estadisticas",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        self.title = Label(self.frame_form_top, text="Estadísticas📄",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         self.title.pack(expand=YES,fill=BOTH)
         
 
@@ -206,15 +206,15 @@ class Estadisticas:
 
         if(horas_reales == horas_ideales):
             if(hora_real_min == horas_ideales_min):
-                texto = "         Un trabajo verdaremente PERFECTO"
+                texto = "                   Un trabajo verdaremente PERFECTO"
             elif(hora_real_min > horas_ideales_min):
-                texto = "        No te preocupes un retraso nos pasa a todos 😉"
+                texto = "                 No te preocupes un retraso nos pasa a todos 😉"
             else:
-                texto = "      Mas despacio rayo ⚡"
+                texto = "                    Mas despacio rayo ⚡"
         elif(horas_reales > horas_ideales):
-            texto = "       No te preocupes un retraso nos pasa a todos 😉" 
+            texto = "                    No te preocupes un retraso nos pasa a todos 😉" 
         else:
-                texto = "       Mas despacio rayo ⚡"
+                texto = "                      Mas despacio rayo ⚡"
 
     
 
@@ -222,11 +222,11 @@ class Estadisticas:
         inforuta1 = Label(self.frame_form_fill, text=texto, font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=X, padx=20,pady=5)
         if(i == 0):
-            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+            recordatorio = f"          Recuerde que debe estar en: \n       {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
         elif(i == 1):
-            recordatorio = f"Recuerde que debe estar en: \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
+            recordatorio = f"          Recuerde que debe estar en: \n        {self.estaciones[2]} a las: {self.horas_llegada[2]}"
         inforuta2 = Label(self.frame_form_fill,
-        text=f"Hora de llegada: \n  Ideal: {self.hora_ideal} \n Real: {hora_real} \n Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
+        text=f"             Hora de llegada: \n           Ideal: {self.hora_ideal} \n               Real: {hora_real} \n            Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
         font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
         
