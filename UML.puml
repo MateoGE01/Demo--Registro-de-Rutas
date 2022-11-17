@@ -1,0 +1,22 @@
+@startuml
+class Estacion{
+nombre : str
+tiempo ideal : int
+next : Estacion
+previous : Estacion
+}
+class Ruta{
+PTR : Estacion
+Last : Estacion
+distancias : []
+tiempos : []
+hora_llegada : []
+
+agregar(self, nombre :str, ubicacion: str)
+tiempos_ideales(self)
+save_data(respuesta : json)
+sumar_horas(self)
+}
+
+Ruta "1"-- ""Estacion
+@enduml
