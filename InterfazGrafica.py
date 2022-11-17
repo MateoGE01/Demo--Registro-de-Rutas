@@ -96,9 +96,9 @@ class rutitas:
                 self.ventana.destroy()
                 mapa(Eleccion)
             else:
-                messagebox.showerror(message="Parece que un dato no cuadra🤔",title="Datos no concuerdan")  
+                messagebox.showerror(message="Parece que un dato no concuerda🤔",title="Datos no concuerdan")  
         except:
-            messagebox.showerror(message="Parece que un dato no cuadra🤔",title="Datos no concuerdan")
+            messagebox.showerror(message="Parece que un dato no concuerda🤔",title="Datos no concuerdan") 
         
                         
        
@@ -111,7 +111,7 @@ class rutitas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 130))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (290, 130))
 
         # frame_logo panel de la izquierda
         frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -170,7 +170,7 @@ class estadisticas:
         self.ventana.resizable(width=0, height=0)    
         centrar_ventana(self.ventana,800,600)
 
-        self.logo =leer_imagen("./imagenes/LogoOOP.png", (400, 130))
+        self.logo =leer_imagen("./imagenes/LogoOOP.png", (280, 130))
 
         # frame_logo panel de la izquierda
         self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
@@ -206,15 +206,15 @@ class estadisticas:
 
         if(horas_reales == horas_ideales):
             if(hora_real_min == horas_ideales_min):
-                texto = "Un trabajo verdaremente PERFECTO"
+                texto = "         Un trabajo verdaremente PERFECTO"
             elif(hora_real_min > horas_ideales_min):
-                texto = "No te preocupes un retraso nos pasa a todos 😉"
+                texto = "        No te preocupes un retraso nos pasa a todos 😉"
             else:
-                texto = "Mas despacio rayo ⚡"
+                texto = "      Mas despacio rayo ⚡"
         elif(horas_reales > horas_ideales):
-            texto = "No te preocupes un retraso nos pasa a todos 😉" 
+            texto = "       No te preocupes un retraso nos pasa a todos 😉" 
         else:
-                texto = "Mas despacio rayo ⚡"
+                texto = "       Mas despacio rayo ⚡"
 
     
 
