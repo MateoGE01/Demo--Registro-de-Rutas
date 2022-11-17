@@ -2,9 +2,9 @@
 Se facilita y optimiza el registro de las rutas que han sido previamente establecidas, generando mayor comodidad para los conductores de transporte público urbano.
 
 Requerimientos para su uso:
--Python 3.9.12 como versión mínima
--Visual Studio Code
--Windows
+1. Python 3.9.12 como versión mínima
+2. Visual Studio Code
+3. Windows
 
 Para usar el proyecto se deben realizar los siguientes pasos:
 1) Copiar código en forma https
@@ -19,3 +19,5 @@ Para usar el proyecto se deben realizar los siguientes pasos:
     4. Escribir el siguiente comando para instalar el módulo requests
       ![image](https://user-images.githubusercontent.com/109986042/202379421-ebf03e34-2110-43f5-aa04-520ae55e1624.png)
 4) Correr main.py
+
+
