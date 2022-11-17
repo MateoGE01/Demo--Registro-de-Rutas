@@ -11,9 +11,9 @@ Para usar el proyecto se deben realizar los siguientes pasos:
 2) Clonar el repositorio en Visual Studio Code
 3) Será necesario instalar ciertos módulos, siga los siguientes pasos:
     1. Abrir CMD(Símbolo del Sistema) en la barra de busqueda de windows
-    ![image](https://user-images.githubusercontent.com/109986042/202378719-a5dd0f1f-621d-44a8-ae44-85e4dd00fd28.png)
+      ![image](https://user-images.githubusercontent.com/109986042/202378719-a5dd0f1f-621d-44a8-ae44-85e4dd00fd28.png)
     2. Escribir el siguiente comando para instalar el módulo tkinter
-      ![image](https://user-images.githubusercontent.com/109986042/202378262-f804e5c2-c58c-4447-9e1e-bd66afe006b3.png)
+      ![image](https://user-images.githubusercontent.com/109986042/202381736-707b9766-5ebf-441e-85a6-6312ff2a0443.png)
     3. Escribir el siguiente comando para instalar el módulo tkintermapview
       ![image](https://user-images.githubusercontent.com/109986042/202379240-47134b71-e523-46f3-98ba-db844762a6f3.png)
     4. Escribir el siguiente comando para instalar el módulo requests
