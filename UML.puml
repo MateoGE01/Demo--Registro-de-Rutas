@@ -18,5 +18,5 @@ save_data(respuesta : json)
 sumar_horas(self)
 }
 
-Ruta "1"-- ""Estacion
+Ruta "1"--"*"Estacion
 @enduml
