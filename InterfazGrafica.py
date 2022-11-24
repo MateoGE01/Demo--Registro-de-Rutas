@@ -44,41 +44,41 @@ class Login:
         self.logo =leer_imagen("./imagenes/LogoOOP.png", (400, 130))
 
         #Panel de la izquierda
-        self.frame_logo = Frame(self.ventana, bd=0, width=400, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
-        self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
+        self.panel_izquierda = Frame(self.ventana, bd=0, width=400, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
+        self.panel_izquierda.pack(side="left",expand=NO,fill=BOTH)
+        self.label = Label( self.panel_izquierda, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #Panel de la derecha
-        self.frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
-        self.frame_form.pack(side="right",expand=YES,fill=BOTH)
-        #frame_form
+        self.panel_derecha = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
+        self.panel_derecha.pack(side="right",expand=YES,fill=BOTH)
+        
         
         #Será el título
-        self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
-        self.frame_form_top.pack(side="top",fill=X)
-        self.title = Label(self.frame_form_top, text=self.titulo, font=('Times', 30), fg=self.colorletra,bg='#fcfcfc',pady=50)
+        self.panel_titulo = Frame(self.panel_derecha,height = 50, bd=0, relief=SOLID,bg='black')
+        self.panel_titulo.pack(side="top",fill=X)
+        self.title = Label(self.panel_titulo, text=self.titulo, font=('Times', 30), fg=self.colorletra,bg='#fcfcfc',pady=50)
         self.title.pack(expand=YES,fill=BOTH)
-        #end frame_form_top
+        
 
         #A la derecha del logo y debajo del título "Inicio de Sesion"
-        self.frame_form_fill = Frame(self.frame_form,height = 2,  bd=0, relief=SOLID,bg='#fcfcfc')
-        self.frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
+        self.panel_informacion = Frame(self.panel_derecha,height = 2,  bd=0, relief=SOLID,bg='#fcfcfc')
+        self.panel_informacion.pack(side="bottom",expand=YES,fill=BOTH)
 
         #Escribir la placa
-        self.etiqueta_usuario = Label(self.frame_form_fill, text="Placa", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
-        self.etiqueta_usuario.pack(fill=X, padx=20,pady=5)
-        self.usuario = ttk.Entry(self.frame_form_fill, font=('Times', 14))
+        self.etiqueta_placa = Label(self.panel_informacion, text="Placa", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        self.etiqueta_placa.pack(fill=X, padx=20,pady=5)
+        self.usuario = ttk.Entry(self.panel_informacion, font=('Times', 14))
         self.usuario.pack(fill=X, padx=20,pady=10)
 
         #Escribir la clave
-        self.etiqueta_password = Label(self.frame_form_fill, text="Clave", font=('Times', 14),fg="#666a88",bg='#fcfcfc' , anchor="w")
-        self.etiqueta_password.pack(fill=X, padx=20,pady=5)
-        self.password = ttk.Entry(self.frame_form_fill, font=('Times', 14))
+        self.etiqueta_clave = Label(self.panel_informacion, text="Clave", font=('Times', 14),fg="#666a88",bg='#fcfcfc' , anchor="w")
+        self.etiqueta_clave.pack(fill=X, padx=20,pady=5)
+        self.password = ttk.Entry(self.panel_informacion, font=('Times', 14))
         self.password.pack(fill=X, padx=20,pady=10)
         self.password.config(show="*")
 
-        self.inicio = Button(self.frame_form_fill,text="Iniciar sesion",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.InicioSesion)
+        self.inicio = Button(self.panel_informacion,text="Iniciar sesion",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.InicioSesion)
         
         self.inicio.pack(fill=X, padx=20,pady=20)
 
@@ -114,43 +114,43 @@ class Rutitas:
         self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
-        frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
-        frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        label = Label( frame_logo, image=self.logo,bg='#b9ea83' )
+        panel_izquierda = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
+        panel_izquierda.pack(side="left",expand=NO,fill=BOTH)
+        label = Label( panel_izquierda, image=self.logo,bg='#b9ea83' )
         label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #Panel de la derecha
-        frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
-        frame_form.pack(side="right",expand=YES,fill=BOTH)
+        panel_derecha = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
+        panel_derecha.pack(side="right",expand=YES,fill=BOTH)
         
         
         #Será el título
-        frame_form_top = Frame(frame_form,height = 50, bd=0, relief=SOLID,bg='black')
-        frame_form_top.pack(side="top",fill=X)
-        title = Label(frame_form_top, text="Rutas🛣",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        panel_titulo = Frame(panel_derecha,height = 50, bd=0, relief=SOLID,bg='black')
+        panel_titulo.pack(side="top",fill=X)
+        title = Label(panel_titulo, text="Rutas🛣",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         title.pack(expand=YES,fill=BOTH)
         
 
         #A la derecha del logo y debajo del título "Inicio de Sesion"
-        frame_form_fill = Frame(frame_form,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
-        frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
+        panel_informacion = Frame(panel_derecha,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
+        panel_informacion.pack(side="bottom",expand=YES,fill=BOTH)
 
 
-        inforuta1 = Label(frame_form_fill, text="1: Terminal➜Estadio➜Caribe verde➜Uni Atlantico", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        inforuta1 = Label(panel_informacion, text="1: Terminal➜Estadio➜Caribe verde➜Uni Atlantico", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=X, padx=20,pady=5)
-        inforuta2 = Label(frame_form_fill, text="2: Terminal➜Camino murillo➜Puente murillo➜Malecon", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        inforuta2 = Label(panel_informacion, text="2: Terminal➜Camino murillo➜Puente murillo➜Malecon", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
 
         #Botón para ver la ruta
-        inicio = Button(frame_form_fill,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.EleccionRutas)
+        inicio = Button(panel_informacion,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.EleccionRutas)
         inicio.pack(side="bottom",fill=X, padx=20,pady=20)
 
         #Pedir al usuario cual ruta desea ver       
 
-        self.usuario = ttk.Entry(frame_form_fill, font=('Times', 14))
+        self.usuario = ttk.Entry(panel_informacion, font=('Times', 14))
         self.usuario.pack(side="bottom", fill=X, padx=20,pady=10)
-        etiqueta_usuario = Label(frame_form_fill, text="Ruta deseada", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
-        etiqueta_usuario.pack(side="bottom", fill=X, padx=20,pady=5)
+        etiqueta_placa = Label(panel_informacion, text="Ruta deseada", font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        etiqueta_placa.pack(side="bottom", fill=X, padx=20,pady=5)
 
         self.ventana.mainloop()
 
@@ -173,26 +173,26 @@ class Estadisticas:
         self.logo =leer_imagen("./imagenes/LogoOOP.png", (300, 110))
 
         #Panel de la izquierda
-        self.frame_logo = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
-        self.frame_logo.pack(side="left",expand=NO,fill=BOTH)
-        self.label = Label( self.frame_logo, image=self.logo,bg='#b9ea83' )
+        self.panel_izquierda = Frame(self.ventana, bd=0, width=300, relief=SOLID, padx=10, pady=10,bg='#b9ea83')
+        self.panel_izquierda.pack(side="left",expand=NO,fill=BOTH)
+        self.label = Label( self.panel_izquierda, image=self.logo,bg='#b9ea83' )
         self.label.place(x=0,y=0,relwidth=1, relheight=1)
 
         #Panel de la derecha
-        self.frame_form = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
-        self.frame_form.pack(side="right",expand=YES,fill=BOTH)
-        #frame_form
+        self.panel_derecha = Frame(self.ventana, bd=0, relief=SOLID, bg='#fcfcfc')
+        self.panel_derecha.pack(side="right",expand=YES,fill=BOTH)
+        
         
         #Será el título
-        self.frame_form_top = Frame(self.frame_form,height = 50, bd=0, relief=SOLID,bg='black')
-        self.frame_form_top.pack(side="top",fill=X)
-        self.title = Label(self.frame_form_top, text="Estadísticas📄",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
+        self.panel_titulo = Frame(self.panel_derecha,height = 50, bd=0, relief=SOLID,bg='black')
+        self.panel_titulo.pack(side="top",fill=X)
+        self.title = Label(self.panel_titulo, text="Estadísticas📄",font=('Times', 30), fg="#666a88",bg='#fcfcfc',pady=20)
         self.title.pack(expand=YES,fill=BOTH)
         
 
         #A la derecha del logo y debajo del título "Inicio de Sesion"
-        self.frame_form_fill = Frame(self.frame_form,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
-        self.frame_form_fill.pack(side="bottom",expand=YES,fill=BOTH)
+        self.panel_informacion = Frame(self.panel_derecha,height = 50,  bd=0, relief=SOLID,bg='#fcfcfc')
+        self.panel_informacion.pack(side="bottom",expand=YES,fill=BOTH)
 
 
         
@@ -219,18 +219,18 @@ class Estadisticas:
     
 
         recordatorio = ""
-        inforuta1 = Label(self.frame_form_fill, text=texto, font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
+        inforuta1 = Label(self.panel_informacion, text=texto, font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta1.pack(fill=X, padx=20,pady=5)
         if(i == 0):
             recordatorio = f"          Recuerde que debe estar en: \n       {self.estaciones[1]} a las: {self.horas_llegada[1]} \n {self.estaciones[2]} a las: {self.horas_llegada[2]}"
         elif(i == 1):
             recordatorio = f"          Recuerde que debe estar en: \n        {self.estaciones[2]} a las: {self.horas_llegada[2]}"
-        inforuta2 = Label(self.frame_form_fill,
+        inforuta2 = Label(self.panel_informacion,
         text=f"             Hora de llegada: \n           Ideal: {self.hora_ideal} \n               Real: {hora_real} \n            Velocidad promedio: {velocidad_prom} km/h \n {recordatorio}",
         font=('Times', 14) ,fg="#666a88",bg='#fcfcfc', anchor="w")
         inforuta2.pack(fill=X, padx=20,pady=5)
         
-        self.inicio = Button(self.frame_form_fill,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.ventana.destroy)
+        self.inicio = Button(self.panel_informacion,text="Ver ruta",font=('Times', 15,BOLD),bg='#3a7ff6', bd=0,fg="#fff", command=self.ventana.destroy)
         self.inicio.pack(side="bottom",fill=X, padx=20,pady=20)
         self.ventana.mainloop()
 
